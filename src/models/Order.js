@@ -6,8 +6,8 @@ class Order extends Model {}
 Order.init(
   {
     date: { type: DataTypes.STRING, allowNull: false },
-    userId: { type: DataTypes.STRING, allowNull: false },
-    roomId: { type: DataTypes.STRING, allowNull: false },
+    userId: { type: DataTypes.INTEGER, allowNull: false },
+    roomId: { type: DataTypes.INTEGER, allowNull: false },
   },
   { sequelize, modelName: 'order' }
 );

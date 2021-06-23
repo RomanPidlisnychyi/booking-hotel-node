@@ -1,7 +1,7 @@
-const { preperingResponse } = require('./preperingResponse');
+const { preparingResponse } = require('./preparingResponse');
 
 module.exports.handlerErrors = (err, req, res, next) => {
-  const response = preperingResponse(err);
+  const response = preparingResponse(err);
 
   return res.status(response.status).json(response);
 };

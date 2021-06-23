@@ -5,18 +5,18 @@ class User extends Model {}
 
 User.init(
   {
-    name: { type: DataTypes.STRING, require: true },
+    name: { type: DataTypes.STRING, allowNull: false },
     email: {
       type: DataTypes.STRING,
-      require: true,
+      allowNull: false,
       unique: true,
       validate: {
         isEmail: true,
       },
     },
-    password: { type: DataTypes.STRING, require: true },
+    password: { type: DataTypes.STRING, allowNull: false },
     status: { type: DataTypes.STRING, defaultValue: 'free' },
-    recoveryToken: { type: DataTypes.STRING, defaultValue: null },
+    recoveryToken: { type: DataTypes.STRING, allowNull: true },
   },
   { sequelize, modelName: 'user' }
 );
