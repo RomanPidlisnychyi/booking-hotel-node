@@ -1,7 +1,10 @@
 const Room = require('../models/Room');
 
 module.exports.getRooms = async(req, res, next) => {
-    let rooms = await Room.findAll();
+    let rooms = await Room.findAll({
+        attributes: {exclude: [ 'createdAt', 'updatedAt' ]},
+        }
+    );
 
     if(rooms?.length < 1) {
         for(let i = 0; i < 20; i++) {

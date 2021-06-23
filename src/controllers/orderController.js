@@ -57,6 +57,7 @@ module.exports.getBookedRoomsByDate = async(req, res, next) => {
         where: {
             date: date,
         },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'date', 'userId'] },
     });
 
     return res.status(201).json(orders);
@@ -73,6 +74,7 @@ module.exports.getBookedRoomsByUser = async(req, res, next) => {
         where: {
             userId: user.id,
         },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'userId'] },
     });
 
     return res.status(201).json(orders);
